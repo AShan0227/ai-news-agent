@@ -30,7 +30,7 @@ def main():
     enriched_data = analyst.analyze_items(all_data)
     
     # 3. 结果展示 (Rendering)
-    generator.render_html(enriched_data)
+    generator.render_html(enriched_data, category_insights)
     
     # 4. 自动打开
     print("\n🚀 系统运行完毕！正在打开仪表盘...")
