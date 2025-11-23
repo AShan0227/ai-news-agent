@@ -1,0 +1,41 @@
+name: Daily AI Hunter
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # 每天 UTC 0:00 (北京 8:00) 运行
+  workflow_dispatch: # 允许手动点击运行
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        pip install requests beautifulsoup4 feedparser openai huggingface_hub duckduckgo-search
+
+    - name: Run Agent
+      env:
+        DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+      run: |
+        python main.py
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./data/report
+        keep_files: true
