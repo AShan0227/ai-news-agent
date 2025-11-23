@@ -2,24 +2,25 @@ import os
 import json
 import sys
 from openai import OpenAI
+import datetime
 
 # 动态添加路径以导入 config
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import config
 
-# 初始化 DeepSeek 客户端
 api_key = os.getenv("DEEPSEEK_API_KEY")
 client = OpenAI(api_key=api_key, base_url="https://api.deepseek.com")
 
 def analyze_items(raw_items):
-    print(f"🧠 [Agent Core] 收到 {len(raw_items)} 条原始情报，开始深度研判...")
-    
+    print(f"🧠 [Agent Core] 收到 {len(raw_items)} 条原始情报...")
     enriched_items = []
     
+    # 1. 逐条深度分析
     for i, item in enumerate(raw_items):
-        print(f"   [{i+1}/{len(raw_items)}] 正在分析: {item['title'][:20]}...")
-        
-        # 1. 填充 Prompt 模板
+        print(f"   [{i+1}/{len(raw_items)}] 分析: {item['title'][:20]}...")
+        if 'timestamp' not in item:
+            item['timestamp'] = datetime.datetime.now().strftime("%H:%M")
+
         prompt = config.AGENT_PROMPT.format(
             title=item['title'],
             source=item['source'],
@@ -29,32 +30,41 @@ def analyze_items(raw_items):
         )
         
         try:
-            # 2. 调用 DeepSeek
             response = client.chat.completions.create(
                 model="deepseek-chat",
                 messages=[{"role": "user", "content": prompt}],
                 response_format={ "type": "json_object" }
             )
+            ai_data = json.loads(response.choices[0].message.content)
             
-            # 3. 解析结果
-            content = response.choices[0].message.content
-            # 有时候 AI 会带 markdown 标记，保险起见去掉
-            if "```json" in content:
-                content = content.replace("```json", "").replace("```", "")
-                
-            ai_data = json.loads(content)
-            
-            # 4. 只有判定为有效的才收录
             if ai_data.get("is_valid", False):
-                # 合并数据
                 item.update(ai_data)
                 enriched_items.append(item)
-                print(f"      ✅ 收录: {ai_data['cn_title']}")
-            else:
-                print(f"      🗑️ 过滤: 无效/低价值内容")
-                
         except Exception as e:
-            print(f"      ❌ 分析出错: {e}")
+            print(f"      ❌ 单条分析失败: {e}")
             continue
-            
-    return enriched_items
+
+    # 2. 生成【分类综述】(V3.0 新增功能)
+    print("🧠 [Agent Core] 正在生成分类综述...") # <--- 刚才日志里缺了这句话
+    
+    grouped = {}
+    for item in enriched_items:
+        cat = item.get("category", "其他")
+        if cat not in grouped: grouped[cat] = []
+        grouped[cat].append(item['cn_title'])
+    
+    category_insights = {}
+    
+    for cat, titles in grouped.items():
+        if len(titles) < 1: continue
+        summary_prompt = f"你是AI主编。今天在【{cat}】领域发生了这些事：{json.dumps(titles, ensure_ascii=False)}。请用一句话犀利地点评今天的该领域的趋势或重点（50字以内）。"
+        try:
+            res = client.chat.completions.create(
+                model="deepseek-chat",
+                messages=[{"role": "user", "content": summary_prompt}]
+            )
+            category_insights[cat] = res.choices[0].message.content
+        except: pass
+
+    # 返回两个值
+    return enriched_items, category_insights
