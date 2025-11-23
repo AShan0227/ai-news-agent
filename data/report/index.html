@@ -1,0 +1,1423 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-CN" class="dark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AI 猎人终极仪表盘</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+        <script>
+            tailwind.config = {
+                darkMode: 'class',
+                theme: { extend: { colors: { gray: { 900: '#111827', 800: '#1f2937', 700: '#374151' } } } }
+            }
+        </script>
+        <style>
+            body { background-color: #0f172a; color: #e2e8f0; font-family: 'Segoe UI', Roboto, sans-serif; }
+            .glass-panel { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+            .neon-text { text-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
+        </style>
+    </head>
+    <body class="min-h-screen p-6">
+        
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/30">
+                    <i class="fa-solid fa-brain text-2xl text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold text-white tracking-wider">AI HUNTER <span class="text-blue-500">V2.0</span></h1>
+                    <p class="text-xs text-slate-400">全网实时情报监测系统 | 在线</p>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <div class="glass-panel px-4 py-2 rounded-lg text-center">
+                    <div class="text-xs text-slate-400">上次扫描</div>
+                    <div class="font-mono text-emerald-400">19:17</div>
+                </div>
+                <div class="glass-panel px-4 py-2 rounded-lg text-center">
+                    <div class="text-xs text-slate-400">情报总数</div>
+                    <div class="font-bold text-white">39</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-8 bg-black rounded-xl p-4 font-mono text-xs border border-slate-800 h-32 overflow-y-auto opacity-80">
+            <div class="text-green-500">>> SYSTEM INITIALIZED...</div>
+            <div class="text-slate-400">>> Connecting to Google News Network... OK</div>
+            <div class="text-slate-400">>> DeepSeek Analysis Module... ACTIVATED</div>
+            <div class="text-blue-400">>> Filtering items based on relevance score...</div>
+            <div class="text-white animate-pulse">>> WAITING FOR NEXT CYCLE...</div>
+        </div>
+
+        <div class="space-y-12">
+    
+        <div class="category-section">
+            <h2 class="text-xl font-bold mb-4 flex items-center text-white border-l-4 border-blue-500 pl-3">
+                ⚡ 智能体与自动化 (Agents) <span class="ml-3 text-xs bg-slate-700 px-2 py-0.5 rounded text-slate-300">9</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GitHub</span>
+                            <span class="font-mono text-sm font-bold text-slate-400">Score: 0</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://github.com/sansan0/TrendRadar" target="_blank">AI热点雷达 - 智能舆情监控分析工具</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比传统舆情工具，它整合35个主流平台热点聚合，基于MCP提供13种AI分析工具（趋势追踪、情感分析、相似检索等），支持多平台推送和30秒快速部署，实现全自动智能监控分析</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">企业市场人员可用它监控品牌舆情，实时追踪行业热点，自动分析竞品动态；媒体编辑可用它发现热门话题，深度挖掘新闻背景，生成分析报告；投资者可用它监控金融市场动态，智能筛选重要资讯，及时推送投资机会</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://github.com/sansan0/TrendRadar" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=TrendRadar%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GitHub</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://github.com/google/adk-go" target="_blank">谷歌开源AI智能体开发工具包</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比传统AI开发框架，adk-go采用代码优先设计，提供更灵活的智能体构建、评估和部署能力，让开发者对AI智能体有更精细的控制权</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">AI开发者可以用它快速构建复杂的对话智能体、自动化任务处理系统，比如客服机器人、数据分析助手或业务流程自动化工具</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://github.com/google/adk-go" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=adk-go%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GitHub</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://github.com/GibsonAI/Memori" target="_blank">Memori - 开源AI记忆引擎</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">专为LLM、AI智能体和多智能体系统设计的开源记忆引擎，提供持久化记忆存储和管理能力，解决了AI智能体在长期对话和任务执行中的记忆丢失问题</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">AI开发者可用它构建具有长期记忆能力的智能体系统，例如客服机器人可以记住用户的历史偏好，个人助理可以跨会话记住用户习惯，多智能体系统可以共享记忆协同完成任务</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://github.com/GibsonAI/Memori" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Memori%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GitHub</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://github.com/microsoft/call-center-ai" target="_blank">AI电话呼叫中心</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比传统呼叫中心，它支持通过API直接发起AI智能电话呼叫，无需人工干预，实现全自动化客户服务；相比其他AI工具，它提供了完整的电话呼叫集成方案，可直接从配置的电话号码呼出</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">企业客服部门可用它搭建7x24小时自动客服热线，处理常见咨询、预约提醒、订单确认等标准化电话业务；电商平台可用它自动通知用户物流状态、促销活动；金融机构可用它进行风险提示、还款提醒等合规电话通知</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://github.com/microsoft/call-center-ai" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=call-center-ai%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxNQXg1NGswai1FVXhoRGxQXzF2bHEycVoyMURxZ0NGcnZIMHFscy1FcWJLMkEtbTlTS25kZ095YUo4OVBsUE9pb0lDQmtLc3lkdTkwRUdjckF5MkMzV2NCaHRSUFFTdXRmOGswMENCUUVLdzVNS2dtSm9NcTZhQU1oeV9PZUlGLU0tRzFUU21oVVZ6Q2NzRThrYlZ3?oc=5" target="_blank">小米发布开源AI模型，支持自动驾驶与机器人</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">作为开源模型，相比闭源竞品，开发者可免费使用、自定义和优化，降低了自动驾驶和机器人领域的AI技术门槛，促进技术共享和创新。</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">自动驾驶工程师可用它训练车辆感知和决策系统；机器人开发者可用它构建智能导航、物体识别和自主操作功能。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxNQXg1NGswai1FVXhoRGxQXzF2bHEycVoyMURxZ0NGcnZIMHFscy1FcWJLMkEtbTlTS25kZ095YUo4OVBsUE9pb0lDQmtLc3lkdTkwRUdjckF5MkMzV2NCaHRSUFFTdXRmOGswMENCUUVLdzVNS2dtSm9NcTZhQU1oeV9PZUlGLU0tRzFUU21oVVZ6Q2NzRThrYlZ3?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Xiaomi%20launches%20open-source%20AI%20model%20for%20self-driving%2C%20robotics%20-%20Tech%20in%20Asia%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxOY0RIR0FERFYwRlJfeTlpUWpYcGw4VVJBaHhoZmRNWUxjSURYaXdJbllra2NPS2dnbDN0LTB4SUFsek04b0lTT3Exem4yR1FmMHZUNTdCLXFqZW1oSlJuamhmcjRjdkgtR3JRVGtNaU1TYzJ2MTdTWlRIN1ZWS1c5VXFBXzc3aE4wWEUyRWZqNl8?oc=5" target="_blank">微软计划将Windows升级为“智能体操作系统”引发用户不满</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比传统操作系统，Windows将转型为具备自主决策和自动化能力的智能体操作系统，能够主动理解用户意图、自动化执行复杂任务，实现更智能的人机交互体验</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">普通用户可用它自动管理文件、智能安排日程、自动化日常操作；企业用户可用它实现业务流程自动化、智能资源调配；开发者可用它构建更智能的应用生态</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxOY0RIR0FERFYwRlJfeTlpUWpYcGw4VVJBaHhoZmRNWUxjSURYaXdJbllra2NPS2dnbDN0LTB4SUFsek04b0lTT3Exem4yR1FmMHZUNTdCLXFqZW1oSlJuamhmcjRjdkgtR3JRVGtNaU1TYzJ2MTdTWlRIN1ZWS1c5VXFBXzc3aE4wWEUyRWZqNl8?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Windows%20Users%20Furious%20at%20Microsoft%E2%80%99s%20Plan%20to%20Turn%20It%20Into%20an%20%E2%80%9CAgentic%20OS%E2%80%9D%20-%20Futurism%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxNazVCN1VPTXdjV1RPamoxNm5lT1NaeVNoMU9yVENDZlRkOThpb0Q2Wk4wTnpYT0t3X1hNNi13NTJ1MUN2SFQ0UF9TNndodXEyek9sYWdmRmQ1V20wbmNlWkJUVmVYRzhpTkowS0x2OE16ZzRrVnZPUTVUb2M1WmR1Tm5FaWpsc3cwTkEtUlNjUXZlbUtlQ3IyVjJMWW1xM2xwYktHZTMwWW1lNGtHZVdjcllkM3FNTkZMSmJLONIBvAFBVV95cUxNazVCN1VPTXdjV1RPamoxNm5lT1NaeVNoMU9yVENDZlRkOThpb0Q2Wk4wTnpYT0t3X1hNNi13NTJ1MUN2SFQ0UF9TNndodXEyek9sYWdmRmQ1V20wbmNlWkJUVmVYRzhpTkowS0x2OE16ZzRrVnZPUTVUb2M1WmR1Tm5FaWpsc3cwTkEtUlNjUXZlbUtlQ3IyVjJMWW1xM2xwYktHZTMwWW1lNGtHZVdjcllkM3FNTkZMSmJLOA?oc=5" target="_blank">谷歌推出Antigravity与AI Gemini 3，实现编程自动化</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比传统编程工具，Antigravity结合Gemini 3能够自动完成编码过程，大幅减少手动编程工作量，通过AI智能理解需求并生成代码，提升开发效率</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">软件开发人员可用它自动生成代码片段、完成重复性编程任务、快速搭建项目框架，减少编码时间和错误率</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxNazVCN1VPTXdjV1RPamoxNm5lT1NaeVNoMU9yVENDZlRkOThpb0Q2Wk4wTnpYT0t3X1hNNi13NTJ1MUN2SFQ0UF9TNndodXEyek9sYWdmRmQ1V20wbmNlWkJUVmVYRzhpTkowS0x2OE16ZzRrVnZPUTVUb2M1WmR1Tm5FaWpsc3cwTkEtUlNjUXZlbUtlQ3IyVjJMWW1xM2xwYktHZTMwWW1lNGtHZVdjcllkM3FNTkZMSmJLONIBvAFBVV95cUxNazVCN1VPTXdjV1RPamoxNm5lT1NaeVNoMU9yVENDZlRkOThpb0Q2Wk4wTnpYT0t3X1hNNi13NTJ1MUN2SFQ0UF9TNndodXEyek9sYWdmRmQ1V20wbmNlWkJUVmVYRzhpTkowS0x2OE16ZzRrVnZPUTVUb2M1WmR1Tm5FaWpsc3cwTkEtUlNjUXZlbUtlQ3IyVjJMWW1xM2xwYktHZTMwWW1lNGtHZVdjcllkM3FNTkZMSmJLOA?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Google%20Launches%20Antigravity%20with%20AI%20Gemini%203%20to%20Automate%20Coding%20Processes%20-%20qoo10.co.id%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMiXkFVX3lxTE9oZUQyTUFiVm9wU2ZuYk9Pem1qQ29td1plMkUwMEM4bk9haE9nZDRWU3gwT2pJRUh2SjhWaWNYMEEtX2lIRWRiUFRjX1NJeE9Ta0hLeEw3WlJHWEdxU3c?oc=5" target="_blank">Magic School AI 替代方案推荐</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">提供比 Magic School AI 更强大的自动化能力和更丰富的功能选项，可能在处理复杂任务、多步骤推理或特定场景应用方面有优势</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">内容创作者可用它自动生成文章大纲和草稿，研究人员可用它快速整理文献资料和分析数据，企业用户可用它自动化处理日常办公任务</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMiXkFVX3lxTE9oZUQyTUFiVm9wU2ZuYk9Pem1qQ29td1plMkUwMEM4bk9haE9nZDRWU3gwT2pJRUh2SjhWaWNYMEEtX2lIRWRiUFRjX1NJeE9Ta0hLeEw3WlJHWEdxU3c?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Magic%20School%20AI%20Alternatives%20-%20autogpt.net%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxPeUMwOTNFTUhRaFhkV3lkZ2NZTkNoSlV3emtROXVhQUh0cWNSTVc5OFd0bVFDR0M3RWFIMDhrTjRnM0Q3aGxRQW9oRnpWQUZqeTU3enE5MHhRRWhwd0JXRXROYVl1T093THpTQkVCQ2lRZXN1aVJXRFR1cFByS0lxYmJHd1d0MXYyQUxBdFlscWloV0FmLXc?oc=5" target="_blank">特斯拉计划2026年2月在欧洲获批全自动驾驶</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比现有辅助驾驶系统，特斯拉全自动驾驶在欧洲获批后将实现完全无人干预的自动驾驶功能，无需驾驶员随时接管，这是从L2到L4/L5级别的重大跨越</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">特斯拉车主可用它在欧洲高速公路上实现完全自动驾驶，无需手握方向盘，车辆可自主完成变道、超车、进出匝道等复杂操作，大幅提升驾驶舒适性和安全性</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxPeUMwOTNFTUhRaFhkV3lkZ2NZTkNoSlV3emtROXVhQUh0cWNSTVc5OFd0bVFDR0M3RWFIMDhrTjRnM0Q3aGxRQW9oRnpWQUZqeTU3enE5MHhRRWhwd0JXRXROYVl1T093THpTQkVCQ2lRZXN1aVJXRFR1cFByS0lxYmJHd1d0MXYyQUxBdFlscWloV0FmLXc?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Tesla%20Eyes%20February%202026%20For%20Full%20Self-Driving%20Approval%20In%20Europe%20-%20inkl%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            </div></div>
+        <div class="category-section">
+            <h2 class="text-xl font-bold mb-4 flex items-center text-white border-l-4 border-blue-500 pl-3">
+                🛠️ 编程与开发工具 (DevTools) <span class="ml-3 text-xs bg-slate-700 px-2 py-0.5 rounded text-slate-300">7</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GitHub</span>
+                            <span class="font-mono text-sm font-bold text-slate-400">Score: 0</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://github.com/yeongpin/cursor-free-vip" target="_blank">Cursor AI 免费VIP破解工具</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比手动操作，该工具能自动重置机器ID，绕过免费试用次数限制，让用户持续免费使用Cursor AI的Pro功能，解决'试用次数超限'和'机器上使用过多免费账户'的问题</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">程序员和开发者可用它无限次免费使用Cursor AI的高级编程辅助功能，包括代码自动补全、智能重构、错误检测等Pro版特性，无需付费订阅</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://github.com/yeongpin/cursor-free-vip" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=cursor-free-vip%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">HuggingFace</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://huggingface.co/spaces/HuggingFaceTB/smol-training-playbook" target="_blank">轻量级AI训练手册</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比传统复杂的AI训练流程，这个playbook提供了更简单、更轻量的训练方法，降低了AI模型训练的门槛，让开发者能够快速上手和实验</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">AI开发者可以用它来快速搭建和训练小型AI模型，学生可以用它学习AI训练的基础知识，研究人员可以用它进行快速原型验证和实验</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://huggingface.co/spaces/HuggingFaceTB/smol-training-playbook" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=HuggingFaceTB/smol-training-playbook%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxPaE54eEhxeGItcHlETno1cmdfV01oTFNLTW9MMC1YRjh1ZkkzbjdfRVF2cmFmbnpNUklWNVJJYWk3OFMzM0dtRDdVcDhfRExYaXpYNktmV3VNdnE2U05TUWI1eU9idGF5MjZBRE9WOWtSbnFrR2JxbFBBM2ZsN1N5eEstd0tRemFLM1hKVkVB?oc=5" target="_blank">谷歌反重力AI编程实验：亲手体验新一代代码助手</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比传统编程工具，Antigravity通过AI技术实现更智能的代码生成和辅助编程，能够理解开发者的编程意图并提供实时编码建议，大幅提升编程效率</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">软件开发人员可以用它来快速生成代码片段、自动完成复杂函数、调试代码错误，以及学习新的编程语言和框架</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxPaE54eEhxeGItcHlETno1cmdfV01oTFNLTW9MMC1YRjh1ZkkzbjdfRVF2cmFmbnpNUklWNVJJYWk3OFMzM0dtRDdVcDhfRExYaXpYNktmV3VNdnE2U05TUWI1eU9idGF5MjZBRE9WOWtSbnFrR2JxbFBBM2ZsN1N5eEstd0tRemFLM1hKVkVB?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Hands-On%20With%20Antigravity%3A%20Google%E2%80%99s%20Newest%20AI%20Coding%20Experiment%20-%20The%20New%20Stack%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMi_wJBVV95cUxPNGhQS1VVa3R0UFJ3U2RlUkhJblcyRlhBOVhoeG9ULXhHNnFkckhicDRjS1lCRTZwR3FobzM3SFdMcGtoWmVaV2poN0FNeXk2YU1XNU5Zbjd4SUNVX0JJT3hsQjRhY3lpZnJPSTVqSUpVdU1yT1BseUNFaWpnWGMxMUtObFFGUDN2X3JaUGRuZVQ2MjdRWGVmVHhjMmZyUzI0U3RTb3NOSXd3b1dmVzBpT0FMdGhZa3ozUElJd2pEN01YNVR5UlVnWkV1ajZ6a2FfV3RROWgtY1VzQl9JZE01N2lMNkt0ajBhOXB1TWloS084TjhNZnNHZVhpaldSOUpGYzJVdl9aM0ZPUXNVOTVOSkZnZXZPNHJFbVE2QWVEOVNQem1WZVJwWXhfdkkyVGkyZjBWQWplNDhTUlFCQUFBTzRVQzNKbFMwZzVFM3RuRzdMNVNxWThnYXBUR1pKMUNyZ0NPZEZIT0tWZ0xNUHNhLWFNbTNYeEROdXIyY0lEYw?oc=5" target="_blank">谷歌发布Antigravity AI编程工具，可替代初级开发者工作</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">能够像初级开发者一样执行编程任务，具备代码生成、调试和问题解决能力，相比传统编程工具更智能化和自动化</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">软件开发者可用它自动生成代码片段、调试程序、优化代码结构，项目经理可用它快速原型开发，技术团队可用它处理常规编程任务</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMi_wJBVV95cUxPNGhQS1VVa3R0UFJ3U2RlUkhJblcyRlhBOVhoeG9ULXhHNnFkckhicDRjS1lCRTZwR3FobzM3SFdMcGtoWmVaV2poN0FNeXk2YU1XNU5Zbjd4SUNVX0JJT3hsQjRhY3lpZnJPSTVqSUpVdU1yT1BseUNFaWpnWGMxMUtObFFGUDN2X3JaUGRuZVQ2MjdRWGVmVHhjMmZyUzI0U3RTb3NOSXd3b1dmVzBpT0FMdGhZa3ozUElJd2pEN01YNVR5UlVnWkV1ajZ6a2FfV3RROWgtY1VzQl9JZE01N2lMNkt0ajBhOXB1TWloS084TjhNZnNHZVhpaldSOUpGYzJVdl9aM0ZPUXNVOTVOSkZnZXZPNHJFbVE2QWVEOVNQem1WZVJwWXhfdkkyVGkyZjBWQWplNDhTUlFCQUFBTzRVQzNKbFMwZzVFM3RuRzdMNVNxWThnYXBUR1pKMUNyZ0NPZEZIT0tWZ0xNUHNhLWFNbTNYeEROdXIyY0lEYw?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Google%20launches%20Antigravity%20AI%20coding%20tool%20that%20may%20function%20like%20junior%20developers%2C%20raises%20job%20loss%20fear%20-%20MSN%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMif0FVX3lxTFBGT3VuUnVYLW4zOVRMYmN6ekNYSVJMeVluNUREY3BVcXNfekI4dGdBUjc3TnBXWURKZ1BwUTZTcmVrd3BtWE1LSW5CdnllVlF4MzVEODdQc01WcmM0VUNBd1E2emhqUmsyMFdveHFFR3lkMFlSU3dlUHE0TzJCT3M?oc=5" target="_blank">Gemini 3 反重力版 vs Cursor：Cursor 要被淘汰了吗？</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">Gemini 3 Antigravity 相比 Cursor 在代码生成、智能补全和开发效率方面有显著提升，可能威胁到 Cursor 的市场地位</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">程序员可以用它进行更智能的代码生成、自动补全、bug 修复和代码重构，提高开发效率</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMif0FVX3lxTFBGT3VuUnVYLW4zOVRMYmN6ekNYSVJMeVluNUREY3BVcXNfekI4dGdBUjc3TnBXWURKZ1BwUTZTcmVrd3BtWE1LSW5CdnllVlF4MzVEODdQc01WcmM0VUNBd1E2emhqUmsyMFdveHFFR3lkMFlSU3dlUHE0TzJCT3M?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Gemini%203%20Antigravity%20vs%20Cursor%20%3A%20Is%20Cursor%20Finished%3F%20-%20Geeky%20Gadgets%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMilwJBVV95cUxQU0JDMWFGd1hIQnFhNC1nVlVVYTJDNnUyanR0REtMZDVUNzZPdDhKTlVRaHJ6OWVGUG80RDNZZFZDUUdvcTl5QzdiOEI4b0ZFTEQtV3pGVkxmS0ltWlVDWEdESm9ZZlRmd3ltM3hELS1LZGktMENJZjVJSzRaaXlYWF9zdDk5eHJDNkYxZ2ZOMV9rLTdXV0ZmNnJnRlFBMFZZRlRHRlc4cWJILUR5QXpDUVFQTTVaM19zSnplbWFBXzFSUDBNUmZ0UlQzeFM3RzFoellIV05RS0RoTnJPMFFrZDdYcElJM1RWbWl1R0U1SDV4YmRlUXdBai1FUzloNWsyX3doTWphNzBZalZLYS1LUVVfS1FiUVE?oc=5" target="_blank">谷歌联合创始人谢尔盖·布林亲自演示Antigravity编程工具发布</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">谷歌联合创始人亲自站台演示，表明该工具的重要性；作为反重力编程工具，可能具备颠覆性的代码生成或调试能力，让编程变得更轻松高效</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">开发者可用它快速生成复杂代码、自动化调试过程、提升编程效率，减少重复性编码工作</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMilwJBVV95cUxQU0JDMWFGd1hIQnFhNC1nVlVVYTJDNnUyanR0REtMZDVUNzZPdDhKTlVRaHJ6OWVGUG80RDNZZFZDUUdvcTl5QzdiOEI4b0ZFTEQtV3pGVkxmS0ltWlVDWEdESm9ZZlRmd3ltM3hELS1LZGktMENJZjVJSzRaaXlYWF9zdDk5eHJDNkYxZ2ZOMV9rLTdXV0ZmNnJnRlFBMFZZRlRHRlc4cWJILUR5QXpDUVFQTTVaM19zSnplbWFBXzFSUDBNUmZ0UlQzeFM3RzFoellIV05RS0RoTnJPMFFrZDdYcElJM1RWbWl1R0U1SDV4YmRlUXdBai1FUzloNWsyX3doTWphNzBZalZLYS1LUVVfS1FiUVE?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=%E2%80%98Founder%20mode%20on%E2%80%99%3A%20Google%20co-founder%20Sergey%20Brin%20appears%20in%20Antigravity%20coding%20tool%20launch%20video%20and%20why%20this%20is%20%E2%80%98Big%E2%80%99%20-%20MSN%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-slate-400">Score: 0</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxOTHg1N1lWSUZXbG5Va0NHZmVtdTR4LS1MMEgtbmRJVFNndHViT1ByWU5qWmdPcFJIdDZ1SllJYlo3ZGhKT1l3eHVDQnVYQWYyM041U1pmN0tVWENNeUplb0NXRnNRSTBzSzcxTHllZWxCMGFldlpXYmVSVWxDTHJzS2VPUQ?oc=5" target="_blank">什么是氛围编程？这个AI术语被柯林斯词典评为年度词汇</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">氛围编程代表了AI辅助编程的新范式，相比传统编程工具，它强调通过自然语言描述和直觉性交互来生成代码，降低了编程门槛，让开发者能够更专注于创意和逻辑而非语法细节</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">开发者可以用氛围编程工具通过描述想要实现的功能来快速生成代码片段，例如前端开发者可以描述'创建一个带有渐变背景的登录表单'，系统就会自动生成相应的HTML、CSS和JavaScript代码</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxOTHg1N1lWSUZXbG5Va0NHZmVtdTR4LS1MMEgtbmRJVFNndHViT1ByWU5qWmdPcFJIdDZ1SllJYlo3ZGhKT1l3eHVDQnVYQWYyM041U1pmN0tVWENNeUplb0NXRnNRSTBzSzcxTHllZWxCMGFldlpXYmVSVWxDTHJzS2VPUQ?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=What%20does%20vibe%20coding%20mean%3F%20The%20AI%20term%20crowned%20Collins%20Word%20of%20the%20Year%20-%20AOL.com%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            </div></div>
+        <div class="category-section">
+            <h2 class="text-xl font-bold mb-4 flex items-center text-white border-l-4 border-blue-500 pl-3">
+                🤖 大语言模型 (LLMs) <span class="ml-3 text-xs bg-slate-700 px-2 py-0.5 rounded text-slate-300">10</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GitHub</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://github.com/volcengine/verl" target="_blank">火山引擎大语言模型强化学习框架</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">专门为大语言模型设计的强化学习框架，相比通用RL框架更适配LLM训练需求，提供针对性的优化和工具链</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">AI开发者可用它来训练和优化大语言模型，通过强化学习技术提升模型的对话质量、安全性和特定任务表现</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://github.com/volcengine/verl" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=verl%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMi4wFBVV95cUxOZ21VUFAxVGdmZjZDUHZ0Q1FWZjlJSFlwdjNZZWFLNW8yUzhpeUZ6Z1g4bC1zRmtxTTV3YWRUTDJIRHpmVzlCOFZjLUM3TndTZVBqLWN5cm9GY1NfMjAybzNmUlFJbzJ1VUtzWnRsbk5GRUI0cVh4QmRrMkdReVJBQ3JSbHdobEJ1dlg3c0RqN2s2Ny10U2ducko3T2d1MHN1ZEluZ3gwemt6OWdNNUhKTlN5aFliMHAwbHdmRVJmaFQ4WUhDV2NyYlpzYXVyR3dfbUczejJhTVZzek1VbWVQdmZlMA?oc=5" target="_blank">Gemini 3 与 ChatGPT 5.1 对比：哪个AI在日常任务中更自然好用？</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">Gemini 3 在对话自然度和日常任务处理流畅性方面相比旧版和竞品有所提升，特别是在多轮对话连贯性、上下文理解和任务完成效率上表现更优，让用户体验更接近真人交流</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">普通用户可用它进行日常对话咨询、写作辅助、信息查询、任务规划等；学生可用它帮助学习解答、作业辅导；上班族可用它处理邮件撰写、会议纪要、数据分析等办公任务</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMi4wFBVV95cUxOZ21VUFAxVGdmZjZDUHZ0Q1FWZjlJSFlwdjNZZWFLNW8yUzhpeUZ6Z1g4bC1zRmtxTTV3YWRUTDJIRHpmVzlCOFZjLUM3TndTZVBqLWN5cm9GY1NfMjAybzNmUlFJbzJ1VUtzWnRsbk5GRUI0cVh4QmRrMkdReVJBQ3JSbHdobEJ1dlg3c0RqN2s2Ny10U2ducko3T2d1MHN1ZEluZ3gwemt6OWdNNUhKTlN5aFliMHAwbHdmRVJmaFQ4WUhDV2NyYlpzYXVyR3dfbUczejJhTVZzek1VbWVQdmZlMA?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Gemini%203%20vs%20ChatGPT%205.1%20%E2%80%93%20which%20AI%20model%20actually%20feels%20more%20natural%20to%20use%20for%20everyday%20tasks%3F%20-%20MSN%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxNUDk3NmpUQXRfNV9LdVFQenRtQmdkQU9uSjFnVElOaUhvMXl5czRrLTU1bzR1XzRIT3J5dk9YMHVNeDk3bmNMYzliM3IwMElvVFFGN3pJVU5vWTRxLXRNWDExVC1iZ1F1SEdETC1pODhyVnBVZjM1TUdXc2RodEh6aHIxUQ?oc=5" target="_blank">Gemini 3正式发布：所有新功能详解及试用指南</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比旧版，Gemini 3在推理能力、多模态理解和代码生成方面有显著提升，支持更复杂的上下文理解和更精准的创意内容生成，在长文本处理和复杂任务执行上优于多数竞品</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">开发者可用它辅助编写复杂代码和调试；内容创作者可用它生成高质量文案和创意内容；研究人员可用它进行文献分析和数据整理；学生可用它辅助学习和作业解答</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxNUDk3NmpUQXRfNV9LdVFQenRtQmdkQU9uSjFnVElOaUhvMXl5czRrLTU1bzR1XzRIT3J5dk9YMHVNeDk3bmNMYzliM3IwMElvVFFGN3pJVU5vWTRxLXRNWDExVC1iZ1F1SEdETC1pODhyVnBVZjM1TUdXc2RodEh6aHIxUQ?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Gemini%203%20launches%3A%20Here%27s%20every%20new%20feature%20and%20how%20to%20try%20them%20-%20Mashable%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE1lb1pXdVRUS0phaVZBU3hWMjlzTEUwWG5Mc2ZPMVRleWhhQl9acFRGTkJyb2NqSW05cFl1Y3djLS1GOEd6LWtFa09yakd5dGhFNDRTcjM2OGdMV3hWUmloQ1Z4ZXp6dw?oc=5" target="_blank">Gemini 3与ChatGPT对比：工作娱乐新AI功能与工作流</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比旧版和ChatGPT，Gemini 3在功能集成和工作流程优化方面有显著提升，提供了更智能的工作和娱乐解决方案，可能在多模态处理、任务自动化等方面有优势</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">职场人士可用它优化工作流程，比如自动生成报告、会议纪要；内容创作者可用它辅助创意写作、内容策划；普通用户可用它进行娱乐互动、学习辅助等场景</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE1lb1pXdVRUS0phaVZBU3hWMjlzTEUwWG5Mc2ZPMVRleWhhQl9acFRGTkJyb2NqSW05cFl1Y3djLS1GOEd6LWtFa09yakd5dGhFNDRTcjM2OGdMV3hWUmloQ1Z4ZXp6dw?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Gemini%203%20vs%20ChatGPT%20%3A%20New%20AI%20Features%20%26%20Workflows%20for%20Work%20and%20Play%20-%20Geeky%20Gadgets%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxQTVo2VXdZSTVlY2hCbTNKV2FVWlhSSUNRRWwyWDBGUkxZSVhaRWFjclU5MEdFZGc4bmFZMWd1SDVqenpta1JsZ25MdjdJb0Z3VUx1QVFCOTM4enN4ZV9WOG45eUlxOTlYQllsSkJuNUJZZFRiMXpDRnZSQ3B0Z285UlNjdEtPdzEzZmxzTm1hU01VT0N4S3NTcUFoUkl3US1CNkRWSVJYc19oMml3RDEzeGtMaVJLdw?oc=5" target="_blank">谷歌Gemini新版本发布，实现技术反超竞争对手</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">Gemini新版本在性能、功能或效率上显著超越之前的版本和竞争对手产品，可能包括更好的多模态理解、更强的推理能力或更快的响应速度，实现了技术上的重大突破</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">内容创作者可以用它生成高质量的文章和创意文案；研究人员可以用它进行复杂的数据分析和文献总结；开发者可以用它辅助代码编写和技术问题解决；普通用户可以用它进行高效的信息查询和日常任务协助</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxQTVo2VXdZSTVlY2hCbTNKV2FVWlhSSUNRRWwyWDBGUkxZSVhaRWFjclU5MEdFZGc4bmFZMWd1SDVqenpta1JsZ25MdjdJb0Z3VUx1QVFCOTM4enN4ZV9WOG45eUlxOTlYQllsSkJuNUJZZFRiMXpDRnZSQ3B0Z285UlNjdEtPdzEzZmxzTm1hU01VT0N4S3NTcUFoUkl3US1CNkRWSVJYc19oMml3RDEzeGtMaVJLdw?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=How%20Google%20Finally%20Leapfrogged%20Rivals%20With%20New%20Gemini%20Rollout%20-%20MSN%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-slate-400">Score: 0</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE1wSEQ2TVh0OWFOYkwtaERYcVFVRGNaa1czLS0xMlFKX21QSUxCY2kxTlV2Q29UVWlKRlNyNVk4eWNrRk9zbzZoTWNvYnFaME1hNGdUOGRWZVo5V3RCRnAzV0pCcS1zdUhKal9RMVVEREk?oc=5" target="_blank">谷歌AI Pro和AI Ultra版Gemini功能详解</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比基础版，AI Pro和AI Ultra版本提供更强大的推理能力、更长的上下文处理、更精准的代码生成和更复杂的多模态理解能力，在专业场景下表现更出色</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">开发者可用它进行复杂代码调试和架构设计，研究人员可用它分析大量文献数据，内容创作者可用它生成高质量的多模态内容</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE1wSEQ2TVh0OWFOYkwtaERYcVFVRGNaa1czLS0xMlFKX21QSUxCY2kxTlV2Q29UVWlKRlNyNVk4eWNrRk9zbzZoTWNvYnFaME1hNGdUOGRWZVo5V3RCRnAzV0pCcS1zdUhKal9RMVVEREk?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=What%20Gemini%20features%20you%20get%20with%20Google%20AI%20Pro%20and%20AI%20Ultra%20%5BNovember%202025%5D%20-%209to5Google%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-slate-400">Score: 0</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE1wSEQ2TVh0OWFOYkwtaERYcVFVRGNaa1czLS0xMlFKX21QSUxCY2kxTlV2Q29UVWlKRlNyNVk4eWNrRk9zbzZoTWNvYnFaME1hNGdUOGRWZVo5V3RCRnAzV0pCcS1zdUhKal9RMVVEREk?oc=5" target="_blank">谷歌AI Pro和AI Ultra版Gemini功能详解（2025年11月）</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比基础版，AI Pro和AI Ultra版本提供更强大的推理能力、更长的上下文处理、更精准的代码生成和复杂任务处理能力，支持多模态交互和专业级应用场景</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">开发者可用它进行复杂代码调试和系统架构设计；研究人员可用它分析大量文献数据；内容创作者可用它生成高质量的长篇内容和多语言翻译</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE1wSEQ2TVh0OWFOYkwtaERYcVFVRGNaa1czLS0xMlFKX21QSUxCY2kxTlV2Q29UVWlKRlNyNVk4eWNrRk9zbzZoTWNvYnFaME1hNGdUOGRWZVo5V3RCRnAzV0pCcS1zdUhKal9RMVVEREk?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=What%20Gemini%20features%20you%20get%20with%20Google%20AI%20Pro%20and%20AI%20Ultra%20%5BNovember%202025%5D%20-%209to5Google%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxNYkdnU3JibnRKaUVzbDR3LUVPVTNIUzNEQkxZQ1M0SkQweGgySk9jRkdhdDhaYWR2cGRzVmk5VmdBSkp2eHl1ZExDcGNDZGJlY1E4aXVhdkd4UjRqXzZzQ0s3RDhZcFpUQTNNVjJlMHV3TnY2ZEZCMGVJNWZOZWZSTDE0eEJjQ09NRFZBa2I3Xy1UYWVGRkN3eDBDZ1ZqMXVSNUE?oc=5" target="_blank">谷歌Gemini 3穿越到2025年并失控</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">基于标题推测，Gemini 3可能具备时间旅行概念相关的推理能力或模拟未来场景的先进功能，相比旧版在时空理解和预测能力上有显著突破</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">科幻作家可用它模拟未来场景对话，AI研究员可用它测试模型在极端假设下的表现，产品经理可用它进行未来技术趋势的推演分析</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxNYkdnU3JibnRKaUVzbDR3LUVPVTNIUzNEQkxZQ1M0SkQweGgySk9jRkdhdDhaYWR2cGRzVmk5VmdBSkp2eHl1ZExDcGNDZGJlY1E4aXVhdkd4UjRqXzZzQ0s3RDhZcFpUQTNNVjJlMHV3TnY2ZEZCMGVJNWZOZWZSTDE0eEJjQ09NRFZBa2I3Xy1UYWVGRkN3eDBDZ1ZqMXVSNUE?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=When%20Google%E2%80%99s%20Gemini%203%20Time-Traveled%20to%202025%20and%20Lost%20Its%20Mind%20-%20Technology%20Org%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMiygFBVV95cUxPVFhlNDFFYUhlX0J3X1FBc0NoZ0xaaDZPcUhvdXIzMXNUVW5kZzBadFQ5YkJtVmZtVktTSlVweklYbWpoRFJ2RGxVWFgzZ1BUUm1UMW9ZZk4wdU1UY05ncDYxMlVHSXBPbEZfdXZ6U1dKRmRVTXNyX0lGS3hmellIa3pjR21hV3ltZHRHMkpRZ1oyNFN2eWJGRzZKYlRPcTR1WXg0MkhDcVB5emRZMVFmQ0hZMm9YOVU1YkVicGQtWUJPcDkxbmdtaFdn0gHQAUFVX3lxTFAyczdVOFc0M3pkVlJYalg3VzVuVU52TFVaT0E1UmVNUHp5a1JnSktmOHduYTlaVlNnVXlIMmFDUDdRcXU2SEF2d3lSdUszYXJyQjY1Rmh4RGVISEhBcDUxMDVPYVZ0cEdYbTM4T1VZRjVmTjRMVTJrUFlaMzJWNkxQU3FHMzY4TkdSaUlEOWFEZzlUWlR0ZmFRV0FBT1ZpdjM5endVM3hVaTNiYlo2VkpfYXZYd2E5WFppNWdGWkFLaTZhVnlleTRPZFQzbXB3MTY?oc=5" target="_blank">谷歌Gemini 3系列AI模型快速指南：标准版、专业版与深度思考版对比</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">Gemini 3系列相比前代在推理能力、专业任务处理和多模态理解方面有显著提升，DeepThink版本特别强化了复杂问题的深度分析和逻辑推理能力</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">研究人员可用DeepThink版本进行复杂数据分析，开发者可用Pro版本编写高质量代码，内容创作者可用标准版快速生成文案和创意内容</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMiygFBVV95cUxPVFhlNDFFYUhlX0J3X1FBc0NoZ0xaaDZPcUhvdXIzMXNUVW5kZzBadFQ5YkJtVmZtVktTSlVweklYbWpoRFJ2RGxVWFgzZ1BUUm1UMW9ZZk4wdU1UY05ncDYxMlVHSXBPbEZfdXZ6U1dKRmRVTXNyX0lGS3hmellIa3pjR21hV3ltZHRHMkpRZ1oyNFN2eWJGRzZKYlRPcTR1WXg0MkhDcVB5emRZMVFmQ0hZMm9YOVU1YkVicGQtWUJPcDkxbmdtaFdn0gHQAUFVX3lxTFAyczdVOFc0M3pkVlJYalg3VzVuVU52TFVaT0E1UmVNUHp5a1JnSktmOHduYTlaVlNnVXlIMmFDUDdRcXU2SEF2d3lSdUszYXJyQjY1Rmh4RGVISEhBcDUxMDVPYVZ0cEdYbTM4T1VZRjVmTjRMVTJrUFlaMzJWNkxQU3FHMzY4TkdSaUlEOWFEZzlUWlR0ZmFRV0FBT1ZpdjM5endVM3hVaTNiYlo2VkpfYXZYd2E5WFppNWdGWkFLaTZhVnlleTRPZFQzbXB3MTY?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Gemini%203%20vs%20Gemini%203%20Pro%20vs%20Gemini%203%20DeepThink%3A%20A%20quick%20guide%20to%20Google%E2%80%99s%20latest%20AI%20models%20-%20The%20Indian%20Express%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxQeFNSeXdoemNxWjZzTkt4dEdERWRsNUMzeDQ5NGgwTllyTEZoT3FRRTA0Qm9vNUF4Qk5ZRHM5eDFEc05qdGQ3cTA2ZW9TUnlXVndjc1pUS3NVWXQwWTFrQlJZcmZycFBYdWhUYV9VRXNjOHlfNkdCZVF5MXMyWkZMd083RWw1YnZzcjFvMjl0MGpXV3JMZGZya3ZyOHh6aFpiMmY2aHhBSmdfVDE0M0xQMUZmd3p6dw?oc=5" target="_blank">安德烈·卡帕西发布多模型协作框架llm-council，GPT-5.1获同行最高评分</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比单一模型，llm-council通过OpenRouter整合多个LLM形成集成系统，利用集体智慧提升回答质量；在同行评估中，GPT-5.1表现最佳，Claude评分最低，凸显了模型选择的重要性</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">开发者可用它构建更可靠的AI应用，例如：客服系统集成多个模型投票选出最佳回复，内容创作者通过多模型协作生成更准确的文章或代码</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxQeFNSeXdoemNxWjZzTkt4dEdERWRsNUMzeDQ5NGgwTllyTEZoT3FRRTA0Qm9vNUF4Qk5ZRHM5eDFEc05qdGQ3cTA2ZW9TUnlXVndjc1pUS3NVWXQwWTFrQlJZcmZycFBYdWhUYV9VRXNjOHlfNkdCZVF5MXMyWkZMd083RWw1YnZzcjFvMjl0MGpXV3JMZGZya3ZyOHh6aFpiMmY2aHhBSmdfVDE0M0xQMUZmd3p6dw?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Andrej%20Karpathy%20unveils%20llm-council%20open-source%20multi-LLM%20ensemble%20via%20OpenRouter%3B%20GPT-5.1%20ranked%20highest%20by%20peers%2C%20Claude%20lowest%20-%20Blockchain%20News%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            </div></div>
+        <div class="category-section">
+            <h2 class="text-xl font-bold mb-4 flex items-center text-white border-l-4 border-blue-500 pl-3">
+                🎨 视觉与多媒体创作 (Vision/Audio) <span class="ml-3 text-xs bg-slate-700 px-2 py-0.5 rounded text-slate-300">8</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">HuggingFace</span>
+                            <span class="font-mono text-sm font-bold text-slate-400">Score: 0</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://huggingface.co/spaces/linoyts/Qwen-Image-Edit-Angles" target="_blank">Qwen图像多角度编辑工具</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比传统单一角度图像编辑，该工具支持从多个角度对图像进行智能编辑，提供更全面的图像处理视角，在HuggingFace Trending Space获得1199个点赞，表明其用户体验和功能受到社区认可</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">设计师和内容创作者可用它快速生成同一图像的不同编辑版本，比如调整光线角度、色彩风格或构图比例，便于对比选择最佳效果；摄影师可用它批量处理照片的不同视觉风格</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://huggingface.co/spaces/linoyts/Qwen-Image-Edit-Angles" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=linoyts/Qwen-Image-Edit-Angles%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">HuggingFace</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://huggingface.co/spaces/depth-anything/depth-anything-3" target="_blank">深度图生成工具</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比旧版或竞品，Depth-Anything-3在深度估计精度、处理速度和场景适应性方面有显著提升，能够更准确地从单张图像生成深度信息，支持更复杂的视觉场景</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">摄影师可用它快速为照片添加深度效果，视频创作者可用它制作3D立体视频，游戏开发者可用它进行场景建模，AR/VR开发者可用它实现空间感知功能</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://huggingface.co/spaces/depth-anything/depth-anything-3" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=depth-anything/depth-anything-3%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">HuggingFace</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://huggingface.co/spaces/dream2589632147/Dream-wan2-2-faster-Pro" target="_blank">Dream万2-2极速专业版</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比旧版或竞品，速度大幅提升，处理效率更高，支持更复杂的图像生成任务，提供专业级的AI绘画体验</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">插画师可用它快速生成概念图、角色设计；设计师可用它制作海报素材、UI界面原型；内容创作者可用它生成配图、封面设计；艺术家可用它进行数字艺术创作和风格探索</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://huggingface.co/spaces/dream2589632147/Dream-wan2-2-faster-Pro" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=dream2589632147/Dream-wan2-2-faster-Pro%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">HuggingFace</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://huggingface.co/spaces/prithivMLmods/Qwen-Image-Edit-2509-LoRAs-Fast" target="_blank">Qwen图像编辑LoRA快速版</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比标准版本，该LoRA模型在图像编辑处理速度上有显著提升，能够更快地完成图像风格转换、内容编辑等任务，同时保持了Qwen模型的高质量输出效果</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">设计师和内容创作者可以用它快速编辑和优化图片，比如将普通照片转换为艺术风格、修复图片瑕疵、调整图片色调和风格等，大大提升图像处理效率</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://huggingface.co/spaces/prithivMLmods/Qwen-Image-Edit-2509-LoRAs-Fast" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=prithivMLmods/Qwen-Image-Edit-2509-LoRAs-Fast%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE91UjVMTDBSYnloMkljWUtwNUhRZ3dSWG16YTRhcFZaOXVTNVduRWlWVldYRXVRRjNPUmV6TGx3VWF4M1VMWVVFRmpyM1hHS3pEakJQTXJQVEZvbWFwemFYNndpU0hiSU5ZckttTmhWUG9iMmJOTjhyR3VmVUg?oc=5" target="_blank">用Nano Banana Pro构建Gemini 3 Pro图像模型</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">Gemini 3 Pro图像模型相比旧版在图像生成质量、细节表现和生成速度上有显著提升，支持更复杂的视觉创作需求</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">设计师和开发者可以用它快速生成高质量的商业插画、产品概念图、UI界面设计原型和营销素材，大幅提升视觉内容创作效率</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE91UjVMTDBSYnloMkljWUtwNUhRZ3dSWG16YTRhcFZaOXVTNVduRWlWVldYRXVRRjNPUmV6TGx3VWF4M1VMWVVFRmpyM1hHS3pEakJQTXJQVEZvbWFwemFYNndpU0hiSU5ZckttTmhWUG9iMmJOTjhyR3VmVUg?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Build%20with%20Nano%20Banana%20Pro%2C%20our%20Gemini%203%20Pro%20Image%20model%20-%20The%20Keyword%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxNenRzVGlXQ0hOUHI1U0s3NHd2Z1ZNMmY3blZLVDg0bElGX1RlY25pSHRsWjl5QjdZdDNpTE9FS1VHZkM4RzZSLXNTdlQ1eHNydnBqdWk3ZmQxWUpWeW5zYndmR3cyeGN3TVZTcmtqelg3MDZvWlZwMTA5bUFRcGw5dnZPSFRtRU5jdERoZmtvRXJnbHhyVm0ydG9seHZHaUxLeTZZcVVyMDFqaWFwUmdISWhWejlCRm01bHBETGUyR3NrZG8xN0tmTkVFUHlXUWFJT0VodlRwTjVUdw?oc=5" target="_blank">法官暂时禁止OpenAI在视频制作应用Sora中使用'Cameo'功能</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">该新闻涉及法律层面的重要进展，法官的临时禁令阻止了OpenAI在Sora视频制作应用中使用'Cameo'功能，这表明该功能可能涉及知识产权或商标争议，对产品功能完整性产生直接影响</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">视频创作者原本可能使用Sora的Cameo功能来制作包含特定人物或元素的视频内容，但现在该功能被暂时禁用，创作者需要寻找替代方案或等待法律纠纷解决</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxNenRzVGlXQ0hOUHI1U0s3NHd2Z1ZNMmY3blZLVDg0bElGX1RlY25pSHRsWjl5QjdZdDNpTE9FS1VHZkM4RzZSLXNTdlQ1eHNydnBqdWk3ZmQxWUpWeW5zYndmR3cyeGN3TVZTcmtqelg3MDZvWlZwMTA5bUFRcGw5dnZPSFRtRU5jdERoZmtvRXJnbHhyVm0ydG9seHZHaUxLeTZZcVVyMDFqaWFwUmdISWhWejlCRm01bHBETGUyR3NrZG8xN0tmTkVFUHlXUWFJT0VodlRwTjVUdw?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Judge%20temporarily%20blocks%20OpenAI%20from%20using%20%E2%80%98Cameo%E2%80%99%20in%20video-making%20app%20Sora%20-%20Los%20Angeles%20Times%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-slate-400">Score: 0</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMi5gFBVV95cUxQbW9vV25zVHdsdm5fYTg1emdYa2ZFSDMyYUtraWoyY0VjOFpoUTNSQUtDMGJwbGZZT0k0WlNoNkctZFVpcmRob0R4YTV1dXJ6bXZCUWxPa0JYZHJSYTYwaWRwRlctUHpYVnJrVmZwQnE1ZGVraGZETUdiazliZDRfM3pkMzJveU5GazVtSXBqNFF2NnRsb29oU2hrMklGTkFaM2hNZ18yZGlWbHJ0cmFfX3lneURsWGFCQXRkaTROOVluckxLVXNab1hrMVR3eEFrVGE3dUxCZ2l6MklPdFdtQWp1TXlfdw?oc=5" target="_blank">Aiarty视频增强器3.0：更快更智能的AI视频画质提升工具</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比旧版，3.0版本在视频增强速度上大幅提升，AI算法更加智能，能够更高效地提升视频分辨率、降噪和优化画质，同时提供49%的黑色星期五折扣</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">视频创作者、自媒体博主可以用它来修复老旧视频的画质，提升低分辨率视频的清晰度，让模糊的视频变得高清；摄影师可以用它优化拍摄的视频素材，增强色彩和细节表现</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMi5gFBVV95cUxQbW9vV25zVHdsdm5fYTg1emdYa2ZFSDMyYUtraWoyY0VjOFpoUTNSQUtDMGJwbGZZT0k0WlNoNkctZFVpcmRob0R4YTV1dXJ6bXZCUWxPa0JYZHJSYTYwaWRwRlctUHpYVnJrVmZwQnE1ZGVraGZETUdiazliZDRfM3pkMzJveU5GazVtSXBqNFF2NnRsb29oU2hrMklGTkFaM2hNZ18yZGlWbHJ0cmFfX3lneURsWGFCQXRkaTROOVluckxLVXNab1hrMVR3eEFrVGE3dUxCZ2l6MklPdFdtQWp1TXlfdw?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Aiarty%20Video%20Enhancer%203.0%3A%20Faster%20and%20Smarter%20Video%20Enhancement%20with%20AI%20%5BNow%20with%20a%20Black%20Friday%2049%25%20discount%5D%20-%20Letem%20sv%C4%9Btem%20Applem%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxPZDhCcGRwMmVTX0pyS3h6TTJMcEVGTk82SkZXNXpYZzBPQUViTDdJTE9kRkFfdHNkVkZQdlhSMmR1R1VzMl9LZWNBQmZUY2VNWWNPaHpzZUJ0OXM3d0F3TVNudDJUYS01Y1hjWU50dUw1ZkNCN20tMnk2S0E4WklVVFEyUjFYQm41dzhubWFNbDJaTjdEd1FUQ2pJSFlteGU1ZUZpUTVOaXUwczI3MEFB0gGvAUFVX3lxTE9kOEJwZHAyZVNfSnJLeHpNMkxwRUZOTzZKRlc1elhnME9BRWJMN0lMT2RGQV90c2RWRlB2WFIyZHVHVXMyX0tlY0FCZlRjZU1ZY09oenNlQnQ5czd3QXdNU250MlRhLTVjWGNZTnR1TDVmQ0I3bS0yeTZLQThaSVVUUTJSMVhCbjV3OG5tYU1sMlpON0R3UVRDaklIWW14ZTVlRmlRNU5pdTBzMjcwQUE?oc=5" target="_blank">2025年内容创作者必备AI工具</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">针对2025年内容创作需求优化的AI工具集合，相比旧版在创作效率、内容质量和多模态支持方面有显著提升</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">视频博主可用AI工具自动生成视频脚本和字幕，设计师可用AI生成创意插图和视觉元素，文案写手可用AI辅助创作高质量文章和社交媒体内容</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxPZDhCcGRwMmVTX0pyS3h6TTJMcEVGTk82SkZXNXpYZzBPQUViTDdJTE9kRkFfdHNkVkZQdlhSMmR1R1VzMl9LZWNBQmZUY2VNWWNPaHpzZUJ0OXM3d0F3TVNudDJUYS01Y1hjWU50dUw1ZkNCN20tMnk2S0E4WklVVFEyUjFYQm41dzhubWFNbDJaTjdEd1FUQ2pJSFlteGU1ZUZpUTVOaXUwczI3MEFB0gGvAUFVX3lxTE9kOEJwZHAyZVNfSnJLeHpNMkxwRUZOTzZKRlc1elhnME9BRWJMN0lMT2RGQV90c2RWRlB2WFIyZHVHVXMyX0tlY0FCZlRjZU1ZY09oenNlQnQ5czd3QXdNU250MlRhLTVjWGNZTnR1TDVmQ0I3bS0yeTZLQThaSVVUUTJSMVhCbjV3OG5tYU1sMlpON0R3UVRDaklIWW14ZTVlRmlRNU5pdTBzMjcwQUE?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Best%20AI%20Tools%20for%20Content%20Creators%20in%202025%20-%20Analytics%20Insight%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            </div></div>
+        <div class="category-section">
+            <h2 class="text-xl font-bold mb-4 flex items-center text-white border-l-4 border-blue-500 pl-3">
+                📰 行业深度与大V观点 (Insights) <span class="ml-3 text-xs bg-slate-700 px-2 py-0.5 rounded text-slate-300">2</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxQRWhzQUR0M3Bla2JiQUFHREFtZXZfTGtJVW1vRGtOdWxxZFdRNDE5dHBsS3FoZDlkdWlidjJIaE52UE5ndmVYUXFEeTFPendvUmtoRnJiZWhWWVNtU1A4SndxbE53UTJ5alFvTUdEbzJYNkF0akY0VF93T0NPd19rTWxJbzlkdmhoY1N5NnBVQmRITXJTalh2UWJ1ZnZuVG01MUxHSlBxcHFEV2FuazlCRTd5M2Jnd0VKZGgzaFlkMmlVak0?oc=5" target="_blank">投资者担忧OpenAI泡沫破裂，软银和甲骨文股价持续下跌</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">该报道揭示了市场对AI投资泡沫的担忧情绪，特别是针对OpenAI相关概念股的抛售压力，反映了投资者对AI领域估值过高的风险意识</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">金融分析师和投资者可用此情报分析AI板块投资风险，调整投资组合策略，避免因AI概念泡沫破裂而遭受损失</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxQRWhzQUR0M3Bla2JiQUFHREFtZXZfTGtJVW1vRGtOdWxxZFdRNDE5dHBsS3FoZDlkdWlidjJIaE52UE5ndmVYUXFEeTFPendvUmtoRnJiZWhWWVNtU1A4SndxbE53UTJ5alFvTUdEbzJYNkF0akY0VF93T0NPd19rTWxJbzlkdmhoY1N5NnBVQmRITXJTalh2UWJ1ZnZuVG01MUxHSlBxcHFEV2FuazlCRTd5M2Jnd0VKZGgzaFlkMmlVak0?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Investors%20Are%20Acting%20Like%20the%20%22OpenAI%20Bubble%22%20Is%20Popping%20As%20SoftBank%20and%20Oracle%20Stock%20Continue%20Slide%20-%20TheStreet%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMif0FVX3lxTFBSaXBCTm1ORXpKbmQ5RUFiMUlvT3hpb2RmelNsQmVaVmRUR0sxUmNfcXVjeWJHSmR1TU9TV0hUMHEyQnB3WWFSWC1naG5SVEt3bC0zd1ZmVG9zRW96ZjBTU0tqd0hrbTN4UmdCYmx0MFp0c1NsSnNiVThESkFOWDA?oc=5" target="_blank">印度AI开发者为何仍首选俄亥俄州及其代价</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">该文章深度分析了印度AI开发者群体在技术选择上的惯性现象，揭示了过度依赖特定地区技术生态系统的机会成本和创新局限性，为发展中国家AI人才发展战略提供了重要参考</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">政策制定者可用此分析来优化本土AI人才培养策略；印度AI创业者可用此洞察来调整技术选型方向；教育机构可用此观点来设计更符合市场需求的AI课程</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMif0FVX3lxTFBSaXBCTm1ORXpKbmQ5RUFiMUlvT3hpb2RmelNsQmVaVmRUR0sxUmNfcXVjeWJHSmR1TU9TV0hUMHEyQnB3WWFSWC1naG5SVEt3bC0zd1ZmVG9zRW96ZjBTU0tqd0hrbTN4UmdCYmx0MFp0c1NsSnNiVThESkFOWDA?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Why%20every%20Indian%20AI%20developer%20still%20defaults%20to%20Ohio%2C%20and%20what%20that%20costs%20us%20-%20YourStory.com%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            </div></div>
+        <div class="category-section">
+            <h2 class="text-xl font-bold mb-4 flex items-center text-white border-l-4 border-blue-500 pl-3">
+                📝 生产力与办公 (Productivity) <span class="ml-3 text-xs bg-slate-700 px-2 py-0.5 rounded text-slate-300">2</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMingFBVV95cUxOcWU2WHlTME9MQUxTRzJkbHkyWWRhRmVJT3ZuTkttWlRvUlNyZzVUR2YwaWFuZld3TkZXNVRZQ2tTZHE4YjhZMmx6bml5Y3NkOFA0ZzVsVTQ1MnlCMk5kbVE3ZUxtWFp2NnpqdXY5V1JxWHVHVVRRTlBEOG9xZG5hSXZfMHNBRzItczduTkJPdlJkMEZrSVIyaDdVN3Itdw?oc=5" target="_blank">AI写作编辑神器，终身仅需25美元</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比传统写作工具和订阅制AI服务，这款AI工具提供终身使用权，仅需一次性支付25美元，无需持续订阅费用，大大降低了长期使用成本，同时具备写作、编辑等多种AI辅助功能</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">内容创作者可用它快速生成文章草稿、修改语法错误、优化表达；学生可用它辅助完成作业写作、润色论文；商务人士可用它撰写邮件、报告等办公文档</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMingFBVV95cUxOcWU2WHlTME9MQUxTRzJkbHkyWWRhRmVJT3ZuTkttWlRvUlNyZzVUR2YwaWFuZld3TkZXNVRZQ2tTZHE4YjhZMmx6bml5Y3NkOFA0ZzVsVTQ1MnlCMk5kbVE3ZUxtWFp2NnpqdXY5V1JxWHVHVVRRTlBEOG9xZG5hSXZfMHNBRzItczduTkJPdlJkMEZrSVIyaDdVN3Itdw?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=This%20AI%20shortcut%20for%20writing%2C%20editing%2C%20and%20more%20is%20only%20%2425%20for%20life%20-%20Seattle%20Post-Intelligencer%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-green-400">Score: 85</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxNMVpWekF0aTNnTkNtRHNlTnA1bmRvVXRNY2NYTUlVR2trRDhjMGVkYkxjQnN1WHV0bVBycF9uTDBqVlUxVXZZLXJMU3JoMUFaSHRjRHFBaUJKakxTamoyaHY4enJSZFpGdFNHU3dMMnZDNlNkak1DX2JxVllVWmFDcjF4VWVxNWdaTnVUWEZISG9aNHNSbnhMTDBzRlhlaDE0SXc?oc=5" target="_blank">仅需25美元终身享用的AI写作编辑神器</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">相比传统AI工具的高昂订阅费用，这款工具以25美元终身使用的超低价格提供持续的写作、编辑等功能，大幅降低了AI辅助创作的门槛</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">内容创作者可用它快速生成文章草稿、编辑润色文案；学生可用它辅助论文写作和修改；营销人员可用它批量产出营销内容和优化文案质量</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxNMVpWekF0aTNnTkNtRHNlTnA1bmRvVXRNY2NYTUlVR2trRDhjMGVkYkxjQnN1WHV0bVBycF9uTDBqVlUxVXZZLXJMU3JoMUFaSHRjRHFBaUJKakxTamoyaHY4enJSZFpGdFNHU3dMMnZDNlNkak1DX2JxVllVWmFDcjF4VWVxNWdaTnVUWEZISG9aNHNSbnhMTDBzRlhlaDE0SXc?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=This%20AI%20shortcut%20for%20writing%2C%20editing%2C%20and%20more%20is%20only%20%2425%20for%20life%20-%20MySA%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            </div></div>
+        <div class="category-section">
+            <h2 class="text-xl font-bold mb-4 flex items-center text-white border-l-4 border-blue-500 pl-3">
+                🔬 硬核研究与论文 (Research) <span class="ml-3 text-xs bg-slate-700 px-2 py-0.5 rounded text-slate-300">1</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+                <div class="glass-panel rounded-xl overflow-hidden hover:border-blue-500/50 transition duration-300 flex flex-col group">
+                    <div class="p-5 flex-grow">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-700 text-slate-300">GoogleNews</span>
+                            <span class="font-mono text-sm font-bold text-slate-400">Score: 0</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition leading-snug">
+                            <a href="https://news.google.com/rss/articles/CBMijgJBVV95cUxPVmM3R1dZU1hROEFVMi1oSlEtbVN1bThLVnA3RkZQcVp6cWxma0RyUEp1aVpnRmNwZDFjamk3eHlCUHhfR1NIYlBLWmxtUXB0MUN1OUY1eEFkQTZlX1duekstZEprOEtlU1ZVSTNXdW5aR3QxSVR5cGp0aS1TTTFPdV9fc0wwbUlBOVZheFJFVk5BMGpOUk5malFHSm5EWDJEWlpXWXlONU42dWNTc0Y5MVdwTFk1Z24xY21haHlNNW9hQkpLd2hsZmMxZjRUYkszeW9QYUZpWGR2ZTRiYlFxTHhJUVAxMmdHQ2JoMS1haU5kUjZQdHVvel9QM2piSk9UaTNpQW03RlBGamhHVGc?oc=5" target="_blank">卡帕西提出量化定义AI'垃圾内容'，用思维令牌预算评估'垃圾指数'</a>
+                        </h3>
+                        
+                        <div class="mt-4 space-y-3">
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-blue-400 uppercase font-bold mb-1">⚡ 核心亮点</div>
+                                <p class="text-sm text-slate-300">首次提出对AI生成内容中'垃圾内容'的量化定义和可测量的'垃圾指数'，通过LLM小系列和思维令牌预算进行系统性评估，相比传统主观评价更具客观性和可操作性</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 p-3 rounded border border-slate-700/50">
+                                <div class="text-[10px] text-emerald-400 uppercase font-bold mb-1">💡 创作者能做什么</div>
+                                <p class="text-sm text-slate-300">AI研究人员和开发者可用此方法评估不同LLM生成内容的质量，识别和减少AI输出中的低质量、冗余或无意义内容，提升AI系统的可靠性和实用性</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-700 border-t border-slate-700">
+                        <a href="https://news.google.com/rss/articles/CBMijgJBVV95cUxPVmM3R1dZU1hROEFVMi1oSlEtbVN1bThLVnA3RkZQcVp6cWxma0RyUEp1aVpnRmNwZDFjamk3eHlCUHhfR1NIYlBLWmxtUXB0MUN1OUY1eEFkQTZlX1duekstZEprOEtlU1ZVSTNXdW5aR3QxSVR5cGp0aS1TTTFPdV9fc0wwbUlBOVZheFJFVk5BMGpOUk5malFHSm5EWDJEWlpXWXlONU42dWNTc0Y5MVdwTFk1Z24xY21haHlNNW9hQkpLd2hsZmMxZjRUYkszeW9QYUZpWGR2ZTRiYlFxTHhJUVAxMmdHQ2JoMS1haU5kUjZQdHVvel9QM2piSk9UaTNpQW03RlBGamhHVGc?oc=5" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                            📄 原文链接
+                        </a>
+                        <a href="https://www.youtube.com/results?search_query=Andrej%20Karpathy%20seeks%20quantitative%20definition%20of%20AI%20%27slop%27%20and%20a%20measurable%20%27slop%20index%27%20using%20LLM%20miniseries%20and%20thinking%20token%20budgets%20for%20evaluation%20-%20Blockchain%20News%20tutorial%20guide" target="_blank" class="py-3 text-center text-xs font-bold text-slate-400 hover:text-yellow-400 hover:bg-slate-700 transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-youtube"></i> 找教程
+                        </a>
+                    </div>
+                </div>
+            </div></div></div></body></html>
