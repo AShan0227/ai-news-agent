@@ -7,34 +7,36 @@ from renderer import generator
 
 def main():
     print("\n" + "="*50)
-    print("   🤖 AI Deep Agent V2.0 - 全网深度情报系统")
+    print("   🤖 AI Deep Agent V3.0 - Cloud Edition")
     print("="*50 + "\n")
     
-    # 0. 检查 Key
+    # 检查密钥
     if not os.getenv("DEEPSEEK_API_KEY"):
         print("❌ 错误: 未设置 DEEPSEEK_API_KEY")
-        return
+        exit(1)
 
-    # 1. 全域感知 (Collection)
-    # 注意：rss_source 现在是全网猎人，会抓很久，请耐心等待
+    # 1. 全域感知
     all_data = []
-    all_data.extend(github_source.get_data())
-    all_data.extend(huggingface_source.get_data())
-    all_data.extend(rss_source.get_data()) 
+    try: all_data.extend(github_source.get_data())
+    except Exception as e: print(f"⚠️ GitHub 源跳过: {e}")
+    
+    try: all_data.extend(huggingface_source.get_data())
+    except Exception as e: print(f"⚠️ HF 源跳过: {e}")
+    
+    try: all_data.extend(rss_source.get_data())
+    except Exception as e: print(f"⚠️ RSS 源跳过: {e}")
     
     if not all_data:
-        print("⚠️ 未采集到数据，请检查网络。")
+        print("⚠️ 未采集到数据，退出。")
         return
 
-    # 2. 深度思考 (Analysis)
-    enriched_data = analyst.analyze_items(all_data)
+    # 2. 深度思考 (⚠️ 必须接收两个返回值!)
+    enriched_data, category_insights = analyst.analyze_items(all_data)
     
-    # 3. 结果展示 (Rendering)
+    # 3. 结果展示 (传入两个参数)
     generator.render_html(enriched_data, category_insights)
     
-    # 4. 自动打开
-    print("\n🚀 系统运行完毕！正在打开仪表盘...")
-    os.system("open data/report/index.html")
+    print("\n🚀 云端运行完毕！")
 
 if __name__ == "__main__":
     main()
