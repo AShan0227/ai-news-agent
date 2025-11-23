@@ -7,8 +7,13 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import config
 
 def render_html(data, insights):
-    print("🎨 [UI引擎] 正在渲染 V3.0 赛博仪表盘...")
+    print("🎨 [UI引擎] 正在渲染 V4.0 头条版...")
     
+    # 获取头条数据
+    top_picks = insights.get('top_picks', [])
+    daily_summary = insights.get('daily_summary', '正在分析今日趋势...')
+    
+    # 分组
     grouped = {}
     for item in data:
         cat = item.get("category", "未分类")
@@ -21,91 +26,119 @@ def render_html(data, insights):
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AI 深度情报 V3.0</title>
+        <title>AI 深度情报 V4.0</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap');
-            body {{ background-color: #0b0f19; color: #e2e8f0; font-family: 'Inter', sans-serif; }}
-            @keyframes fadeInUp {{ from {{ opacity: 0; transform: translateY(20px); }} to {{ opacity: 1; transform: translateY(0); }} }}
-            .animate-card {{ animation: fadeInUp 0.6s ease-out forwards; opacity: 0; }}
-            .cyber-card {{ background: linear-gradient(145deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.6)); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }}
-            .cyber-card:hover {{ border-color: rgba(59, 130, 246, 0.5); box-shadow: 0 0 20px rgba(59, 130, 246, 0.2); transform: translateY(-5px); }}
-            .category-banner {{ background: linear-gradient(90deg, rgba(59, 130, 246, 0.1) 0%, rgba(0,0,0,0) 100%); border-left: 4px solid #3b82f6; }}
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+            body {{ background-color: #050505; color: #e2e8f0; font-family: 'Inter', sans-serif; }}
+            .glass {{ background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); }}
+            .hero-gradient {{ background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); }}
+            .glow-text {{ text-shadow: 0 0 20px rgba(99, 102, 241, 0.5); }}
         </style>
     </head>
-    <body class="min-h-screen p-4 md:p-8">
-        <header class="max-w-7xl mx-auto mb-12 flex justify-between items-end border-b border-slate-800 pb-6">
-            <div>
-                <h1 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 tracking-tight mb-2">
-                    AI HUNTER <span class="text-xs text-slate-500 font-mono border border-slate-700 px-2 py-1 rounded ml-2">V3.0 LIVE</span>
-                </h1>
-                <p class="text-slate-400 text-sm">全网深度情报监测 / 自动研判 / 实时更新</p>
-            </div>
-            <div class="text-right hidden md:block">
-                <div class="text-3xl font-mono font-bold text-white">{datetime.datetime.now().strftime('%H:%M')}</div>
-                <div class="text-xs text-slate-500 uppercase tracking-widest">{datetime.datetime.now().strftime('%Y-%m-%d')}</div>
-            </div>
-        </header>
-
-        <main class="max-w-7xl mx-auto space-y-16">
-    """
-
-    delay_counter = 0
-    for cat, items in grouped.items():
-        if not items: continue
-        # 如果 main.py 还没传参 insights，这里做个兼容处理
-        insight_text = insights.get(cat, "该领域今日运行平稳。") if insights else "该领域今日运行平稳。"
+    <body class="min-h-screen pb-20">
         
-        html += f"""
-        <section>
-            <div class="mb-8">
-                <h2 class="text-2xl font-bold text-white flex items-center gap-3 mb-3">
-                    <i class="fa-solid fa-layer-group text-blue-500"></i> {cat}
-                    <span class="text-xs bg-slate-800 text-slate-300 px-2 py-1 rounded-full">{len(items)}</span>
-                </h2>
-                <div class="category-banner p-4 rounded-r-lg">
-                    <p class="text-sm text-blue-200 italic font-medium"><i class="fa-solid fa-quote-left mr-2 opacity-50"></i>{insight_text}</p>
+        <div class="bg-slate-900 border-b border-slate-800 sticky top-0 z-50 bg-opacity-90 backdrop-blur">
+            <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-bolt text-yellow-400 text-xl animate-pulse"></i>
+                    <h1 class="text-xl font-bold tracking-tight text-white">AI HUNTER <span class="text-xs bg-blue-600 px-2 py-0.5 rounded ml-2">LIVE</span></h1>
+                </div>
+                <div class="text-xs text-slate-400 font-mono hidden md:block">
+                    最后更新: {datetime.datetime.now().strftime('%H:%M')} | 源: Google/GitHub/HF
                 </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        """
-        
-        for item in items:
-            search_q = urllib.parse.quote(f"{item.get('title')} tutorial guide")
-            tutorial_link = f"https://www.youtube.com/results?search_query={search_q}"
-            delay_style = f"animation-delay: {delay_counter * 100}ms"
-            delay_counter += 1
-            ts = item.get('timestamp', '刚刚')
+        </div>
+
+        <main class="max-w-7xl mx-auto px-4 mt-8 space-y-12">
             
-            card = f"""
-                <article class="cyber-card rounded-xl p-5 flex flex-col h-full transition-all duration-300 animate-card" style="{delay_style}">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-800 text-slate-400 border border-slate-700">{item.get('source','Web')}</span>
-                        <div class="flex items-center gap-2 text-[10px] text-slate-500 font-mono"><i class="fa-regular fa-clock"></i> {ts}</div>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-3 leading-snug hover:text-blue-400 transition"><a href="{item['link']}" target="_blank">{item.get('cn_title', item['title'])}</a></h3>
-                    <div class="space-y-3 flex-grow">
-                        <div class="bg-slate-900/50 p-3 rounded border-l-2 border-amber-500">
-                            <div class="text-[10px] text-amber-500 uppercase font-bold mb-1">⚡ 核心亮点</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">{item.get('update_highlight', '暂无分析')}</p>
+            <section class="hero-gradient rounded-3xl p-8 shadow-2xl border border-indigo-900/50">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-extrabold text-white mb-4 glow-text">今日重点关注</h2>
+                    <p class="text-lg text-indigo-200 leading-relaxed max-w-3xl">"{daily_summary}"</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    """
+    
+    # 渲染 Top 3
+    for item in top_picks:
+        search_q = urllib.parse.quote(f"{item.get('title')} tutorial")
+        html += f"""
+            <div class="bg-slate-900/80 rounded-xl p-6 border border-indigo-500/30 hover:border-indigo-400 transition hover:-translate-y-1 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">SCORE: {item.get('score')}</div>
+                <div class="text-indigo-400 text-xs font-bold uppercase mb-2 tracking-wider">{item.get('category')}</div>
+                <h3 class="text-xl font-bold text-white mb-3 leading-tight group-hover:text-indigo-300">
+                    <a href="{item['link']}" target="_blank">{item.get('cn_title')}</a>
+                </h3>
+                <p class="text-sm text-slate-400 mb-4 line-clamp-3">{item.get('update_highlight')}</p>
+                <div class="flex gap-2">
+                    <a href="{item['link']}" target="_blank" class="flex-1 text-center bg-white text-slate-900 py-2 rounded-lg text-xs font-bold hover:bg-indigo-50">原文</a>
+                    <a href="https://www.youtube.com/results?search_query={search_q}" target="_blank" class="flex-1 text-center bg-indigo-600 text-white py-2 rounded-lg text-xs font-bold hover:bg-indigo-500">看教程</a>
+                </div>
+            </div>
+        """
+
+    html += """
+                </div>
+            </section>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    """
+    
+    # 侧边栏导航
+    html += """<div class="hidden md:block col-span-1 space-y-2 sticky top-24 h-fit">
+                <h3 class="text-xs font-bold text-slate-500 uppercase mb-4">频道导航</h3>"""
+    for cat in grouped.keys():
+        html += f"""<a href="#{cat}" class="block text-sm text-slate-300 hover:text-white hover:pl-2 transition-all py-1">{cat}</a>"""
+    html += "</div>"
+
+    # 主内容区
+    html += "<div class='col-span-1 md:col-span-3 space-y-16'>"
+    
+    for cat, items in grouped.items():
+        html += f"""
+        <section id="{cat}" class="scroll-mt-24">
+            <h3 class="text-xl font-bold text-white flex items-center gap-3 mb-6 border-b border-slate-800 pb-2">
+                <span class="w-2 h-6 bg-blue-600 rounded-full"></span> {cat}
+            </h3>
+            <div class="grid grid-cols-1 gap-4">
+        """
+        for item in items:
+            # 普通列表样式 (比头条稍微简化一点)
+            html += f"""
+                <div class="glass rounded-lg p-5 hover:bg-slate-800/50 transition flex flex-col sm:flex-row gap-4 items-start">
+                    <div class="flex-grow">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="text-[10px] border border-slate-700 text-slate-400 px-1.5 rounded">{item.get('source')}</span>
+                            <span class="text-[10px] text-slate-500">{item.get('timestamp')}</span>
                         </div>
-                        <div class="bg-slate-900/50 p-3 rounded border-l-2 border-emerald-500">
-                            <div class="text-[10px] text-emerald-500 uppercase font-bold mb-1">🎨 创作者用法</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">{item.get('use_case', '暂无案例')}</p>
+                        <h4 class="text-lg font-bold text-slate-200 hover:text-blue-400 mb-2">
+                            <a href="{item['link']}" target="_blank">{item.get('cn_title')}</a>
+                        </h4>
+                        <p class="text-sm text-slate-400 mb-3">{item.get('update_highlight')}</p>
+                        <div class="bg-slate-900/50 p-2 rounded border-l-2 border-emerald-500 text-xs text-slate-300">
+                            <span class="text-emerald-500 font-bold mr-1">用法:</span> {item.get('use_case')}
                         </div>
                     </div>
-                    <div class="mt-5 pt-4 border-t border-slate-800/50 grid grid-cols-2 gap-3">
-                        <a href="{item['link']}" target="_blank" class="flex items-center justify-center gap-2 py-2 rounded bg-slate-800 text-xs font-bold text-slate-300 hover:bg-slate-700 transition"><i class="fa-solid fa-link"></i> 原文</a>
-                        <a href="{tutorial_link}" target="_blank" class="flex items-center justify-center gap-2 py-2 rounded bg-blue-600/20 text-xs font-bold text-blue-400 hover:bg-blue-600 hover:text-white transition"><i class="fa-brands fa-youtube"></i> 找教程</a>
+                    <div class="sm:w-32 flex-shrink-0 flex flex-col gap-2">
+                         <a href="{item['link']}" target="_blank" class="block w-full text-center border border-slate-700 text-slate-400 py-1.5 rounded text-xs hover:text-white hover:border-slate-500">阅读</a>
+                         <a href="https://www.youtube.com/results?search_query={urllib.parse.quote(item.get('title') + ' tutorial')}" target="_blank" class="block w-full text-center bg-blue-600/10 text-blue-400 py-1.5 rounded text-xs hover:bg-blue-600 hover:text-white transition">教程</a>
                     </div>
-                </article>
+                </div>
             """
-            html += card
         html += "</div></section>"
-    html += "</main><footer class='max-w-7xl mx-auto mt-20 py-8 border-t border-slate-800 text-center text-slate-600 text-xs font-mono'>AGENT V3.0 • DEEPSEEK INSIDE</footer></body></html>"
+
+    html += """
+            </div>
+        </div>
+        </main>
+    </body>
+    </html>
+    """
     
     os.makedirs("data/report", exist_ok=True)
     with open("data/report/index.html", "w", encoding="utf-8") as f:
         f.write(html)
-    print("🎉 V3.0 赛博网页生成完毕！")
+    print("🎉 V4.0 头条版生成完毕！")
